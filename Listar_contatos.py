@@ -7,8 +7,17 @@ lista_coluna_1 = ["Numero de contato","Contato", "Telefone", "E-mail"]
 def armazena():
     with open("Contatos.csv", "a", newline='', encoding='utf-8') as objeto_de_arquivo:
         objeto_csv = csv.writer(objeto_de_arquivo, delimiter=";")
-        objeto_csv.writerow(lista_coluna_1)
-        for indice,contato in enumerate(dados_contato):
-            objeto_csv.writerow([indice, contato[0], contato[1], contato[2]])
+        for contato in dados_contato:
+            objeto_csv.writerow([contato[0], contato[1], contato[2]])
 
-armazena()
+def leitura():
+    with open("Contatos.csv", "r", newline='', encoding='utf-8') as objeto_de_leitura:
+        objeto_csv_leitura = csv.reader(objeto_de_leitura, delimiter=";")
+        for linha, conteudo in enumerate(objeto_csv_leitura):
+            if linha == 0:
+                continue
+            print("-="*20)
+            print(f"Contato: {conteudo[0]}")
+            print(f"Telefone: {conteudo[1]}")
+            print(f"E-mail: {conteudo[2]}")
+            print("-=" * 20)
