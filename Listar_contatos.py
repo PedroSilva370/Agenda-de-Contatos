@@ -21,3 +21,5 @@ def leitura():
             print(f"Telefone: {conteudo[1]}")
             print(f"E-mail: {conteudo[2]}")
             print("-=" * 20)
+
+armazena()
